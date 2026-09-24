@@ -1,0 +1,57 @@
+.cv .page {
+  width: min(210mm, 100% - 2rem);
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 15mm 18mm;
+  background: var(--paper);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.15);
+}
+
+.cv {
+  page: cv;
+  flex: 1;
+  padding: 1rem 0 2rem;
+  background: var(--behind);
+}
+
+@page cv {
+  size: A4;
+  margin: 15mm 18mm;
+}
+
+@media print {
+  .cv {
+    --text: #000000;
+    --muted: #444444;
+    --background: #ffffff;
+
+    padding: 0;
+    color: var(--text);
+    font-size: 10.5pt;
+    background: none;
+  }
+
+  .cv .page {
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .cv a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .cv h1,
+  .cv h2,
+  .cv h3 {
+    break-after: avoid;
+  }
+
+  .cv .keep-together,
+  .cv li {
+    break-inside: avoid;
+  }
+}

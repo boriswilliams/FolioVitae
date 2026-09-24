@@ -1,0 +1,26 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.nav a {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  color: var(--text);
+  background: var(--paper);
+  text-decoration: none;
+}
+
+.nav a[aria-current='page'] {
+  border-color: var(--text);
+  color: var(--paper);
+  background: var(--text);
+}
+
+.nav-actions {
+  margin-left: auto;
+}
