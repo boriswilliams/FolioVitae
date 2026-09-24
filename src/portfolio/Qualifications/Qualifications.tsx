@@ -3,7 +3,10 @@ import { useEducation } from '../../context/education';
 import './qualifications.css';
 
 export function Qualifications() {
-  const schools = useEducation()?.schools?.filter(school => school.qualifications?.length);
+  const schools = useEducation()?.schools?.map(school => ({
+    name: school.name,
+    text: school['text-portfolio'] ?? school.text
+  })).filter(school => school.text);
 
   if (!schools?.length)
     return null;
@@ -15,9 +18,7 @@ export function Qualifications() {
         {schools.map(school => (
           <li key={school.name}>
             <h3>{school.name}</h3>
-            <ul>
-              {school.qualifications?.map((qualification) => <li key={qualification}>{qualification}</li>)}
-            </ul>
+            <p>{school.text}</p>
           </li>
         ))}
       </ol>

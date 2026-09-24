@@ -1,26 +1,20 @@
 schools:
   - name: Newcastle Secondary School
-    prose: |
+    text-cv: |
       A-levels:
       A* Maths
       A* Further Maths
       A Physics
       A in FSMQ Additional Mathematics
-    qualifications:
-      - A* A* in Maths and Further Maths A levels
-      - A in Physics A level
+    text-portfolio: |
+      A* A* in Maths and Further Maths A levels
+      
+      A in Physics A level
   - name: University of Durham
     start: October 2018
     end: July 2021
-    prose: |
-      (BSc Hons) Mathematics and Physics
-    qualifications:
-      - BSc Mathematics and Physics from the University of Durham
+    text: (BSc Hons) Mathematics and Physics
   - name: University of Newcastle
     start: October 2021
     end: September 2022
-    prose: |
-      Computer Science MSc
-      Distinction
-    qualifications:
-      - MSc Computer Science (Distinction) from the University of Newcastle
+    text: MSc Computer Science (Distinction)

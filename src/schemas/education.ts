@@ -5,7 +5,8 @@ export const EducationSchema = strictObject({
     name: string(),
     start: string().optional(),
     end: string().optional(),
-    prose: string(),
-    qualifications: array(string()).optional()
+    text: string().optional(),
+    'text-cv': string().optional(),
+    'text-portfolio': string().optional()
   })).optional()
 });

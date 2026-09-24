@@ -27,10 +27,10 @@ export function CV() {
             <Section
               title='Education'
               entries={education?.schools?.map(
-                ({ name, start, end, prose }) => ({
-                  heading: name,
-                  dates: formatRange(start, end),
-                  text: prose
+                school => ({
+                  heading: school.name,
+                  dates: formatRange(school.start, school.end),
+                  text: school['text-cv'] ?? school['text']
                 })
               ) ?? []}
             />
