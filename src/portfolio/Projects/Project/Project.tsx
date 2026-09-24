@@ -8,9 +8,10 @@ import './project.css';
 type Project = {
   heading: string;
   text: string;
-  media?: string | undefined;
-  link?: string | undefined;
-  technologies?: string[] | undefined;
+  start?: string;
+  media?: string;
+  link?: string;
+  technologies?: string[];
 }
 
 export function Project({ project }: { project: Project}) {
@@ -23,6 +24,7 @@ export function Project({ project }: { project: Project}) {
       )}
       <div className='project-text'>
         <h3>{project.heading}</h3>
+        {project.start && <time className='project-start'>{project.start}</time>}
         <Paragraphs text={project.text} />
         {!!project.technologies?.length && (
           <ul className='project-tech' aria-label='Technologies'>

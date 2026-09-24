@@ -2,10 +2,12 @@ import { isRecord } from '../../utils/isRecord';
 
 export type Entry = {
   heading: string;
-  text: string;
+  dates?: string | undefined;
+  text?: string | undefined;
+  list?: string[] | undefined;
 };
 
-export function isEntry(x: unknown): x is Entry {
+export function isEntry(x: unknown): x is Entry & { text: string } {
   if (!isRecord(x))
     return false;
   

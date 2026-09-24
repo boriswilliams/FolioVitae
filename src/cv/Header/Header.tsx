@@ -17,8 +17,8 @@ export function Header() {
       {description && <p className="description">{description}</p>}
       {(email || website) && (
         <address className="contact">
-          {email && <a href={`mailto:${email}`}>{email}</a>}
           {website && <a href={toHref(website)}>{website}</a>}
+          {email && <a href={`mailto:${email}`}>{email}</a>}
         </address>
       )}
     </header>

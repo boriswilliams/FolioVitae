@@ -5,6 +5,7 @@ export const ProjectsSchema = strictObject({
     title: string().optional(),
     'title-cv': string().optional(),
     'title-portfolio': string().optional(),
+    start: string().optional(),
     text: string().optional(),
     'text-cv': string().optional(),
     'text-portfolio': string().optional(),

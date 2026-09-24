@@ -1,7 +1,7 @@
 .portfolio .qualifications {
   --line: #d2d2d7;
 
-  padding: clamp(5rem, 12vw, 9rem) clamp(1.5rem, 6vw, 5rem);
+  padding: clamp(4rem, 9vw, 8rem) clamp(1.5rem, 6vw, 5rem);
   background: var(--surface);
 }
 

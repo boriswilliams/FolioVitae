@@ -10,15 +10,17 @@ schools:
       - A* A* in Maths and Further Maths A levels
       - A in Physics A level
   - name: University of Durham
+    start: October 2018
+    end: July 2021
     prose: |
       (BSc Hons) Mathematics and Physics
-      October 2018 - July 2021
     qualifications:
       - BSc Mathematics and Physics from the University of Durham
   - name: University of Newcastle
+    start: October 2021
+    end: September 2022
     prose: |
       Computer Science MSc
       Distinction
-      October 2021 - September 2022
     qualifications:
       - MSc Computer Science (Distinction) from the University of Newcastle

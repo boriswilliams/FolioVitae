@@ -21,3 +21,12 @@
 .cv .entry p {
   white-space: pre-line;
 }
+
+.cv .entry .entry-dates {
+  color: var(--muted);
+}
+
+.cv .entry ul {
+  margin: 0.2em 0 0;
+  padding-left: 1.2em;
+}

@@ -4,6 +4,8 @@ import { useSkills } from '../context/skills';
 import { useTech } from '../context/tech';
 import { useWork } from '../context/work';
 
+import { formatRange } from './formatRange';
+
 import { Header } from './Header';
 import { isEntry, Section } from './Section';
 
@@ -25,7 +27,11 @@ export function CV() {
             <Section
               title='Education'
               entries={education?.schools?.map(
-                ({ name, prose }) => ({ heading: name, text: prose })
+                ({ name, start, end, prose }) => ({
+                  heading: name,
+                  dates: formatRange(start, end),
+                  text: prose
+                })
               ) ?? []}
             />
             <Section
@@ -39,7 +45,12 @@ export function CV() {
             <Section
               title='Work History'
               entries={work?.jobs?.map(
-                ({ name, prose }) => ({ heading: name, text: prose })
+                ({ name, start, end, prose, list }) => ({
+                  heading: name,
+                  dates: formatRange(start, end),
+                  text: prose,
+                  list
+                })
               ) ?? []}
             />
             <Section
