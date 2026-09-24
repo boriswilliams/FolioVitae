@@ -1,0 +1,22 @@
+.portfolio {
+  --band: #707070;
+  --band-text: #ffffff;
+
+  flex: 1;
+  font-family: Monaco, Menlo, 'DejaVu Sans Mono', monospace;
+  text-align: center;
+  background: var(--paper);
+}
+
+.portfolio h1,
+.portfolio h2,
+.portfolio h3,
+.portfolio p {
+  margin: 0;
+}
+
+.portfolio h2 {
+  margin-bottom: 3rem;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 400;
+}

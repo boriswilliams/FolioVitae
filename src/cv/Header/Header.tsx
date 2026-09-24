@@ -1,10 +1,7 @@
 import { useProfile } from '../../context/profile';
+import { toHref } from '../../utils/href';
 
 import './header.css';
-
-function toHref(website: string) {
-  return /^[a-z]+:\/\//i.test(website) ? website : `https://${website}`;
-}
 
 export function Header() {
   const profile = useProfile();

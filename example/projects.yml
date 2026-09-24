@@ -1,11 +1,48 @@
 projects:
-  - name: 3rd year BSc project
-    prose: |
+  - title-cv: 3rd year BSc project
+    text-cv: |
       Investigating the history of cosmic habitability.
       Developed software in Python to find habitability from observable qualities of stars.
-  - name: Perspective - MSc project
-    prose: |
+  - title-cv: Perspective - MSc project
+    title-portfolio: Perspective - News Comparison
+    text-cv: |
       Android news aggregator app with a focus on suggesting alternative viewpoints to users.
       Java and XML frontend.
       Python backend.
       MySQL database hosted by AWS.
+    text-portfolio: |
+      Perspective is a news aggregator for Android with the goal of improving access to articles with opposing biases, to combat misinformation and help people inform their beliefs.
+
+      Articles are scraped from online publishers and analysed by a Python program, then stored in a database the app reads from to show articles on the same subject from different viewpoints.
+
+      It relies on structured object oriented Java, carefully tuned SQL queries and functional XML design.
+    media: https://picsum.photos/id/160/540/960
+    link: https://example.com/perspective
+    technologies:
+      - Java
+      - XML
+      - Python
+      - MySQL
+  - title-portfolio: Sudoku solver
+    text-cv: |
+      Python program that solves any sudoku, only falling back to brute force when logic runs out.
+    text-portfolio: |
+      During some long car journeys I decided to pass the time by writing a sudoku solver, since I suspected some puzzles in the app I was playing couldn't be completed without brute force.
+
+      The program is written in Python, thoroughly tested and commented.
+    media: https://picsum.photos/id/180/960/720
+    link: https://github.com/janedoe/sudoku-solver
+    technologies:
+      - Python
+  - title-cv: Folio Vitae
+    title-portfolio: This website
+    text-cv: |
+      Personal portfolio and CV rendered from YAML files.
+    text-portfolio: |
+      A portfolio and printable CV, both rendered at runtime from a handful of YAML files, so the same build works for anyone's data.
+
+      TypeScript and React are used for the pages and intro animation, and CSS for the layout and print styles.
+    technologies:
+      - TypeScript
+      - React
+      - CSS

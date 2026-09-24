@@ -6,12 +6,19 @@ schools:
       A* Further Maths
       A Physics
       A in FSMQ Additional Mathematics
+    qualifications:
+      - A* A* in Maths and Further Maths A levels
+      - A in Physics A level
   - name: University of Durham
     prose: |
       (BSc Hons) Mathematics and Physics
       October 2018 - July 2021
+    qualifications:
+      - BSc Mathematics and Physics from the University of Durham
   - name: University of Newcastle
     prose: |
       Computer Science MSc
       Distinction
       October 2021 - September 2022
+    qualifications:
+      - MSc Computer Science (Distinction) from the University of Newcastle

@@ -4,5 +4,6 @@ export const ProfileSchema = strictObject({
   name: string().optional(),
   description: string().optional(),
   email: string().optional(),
-  website: string().optional()
+  website: string().optional(),
+  photo: string().optional()
 });

@@ -1,0 +1,16 @@
+.portfolio .qualifications {
+  padding: 3rem 1rem;
+  color: var(--band-text);
+  background: var(--band);
+}
+
+.portfolio .qualifications ul {
+  display: inline-block;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.portfolio .qualifications li {
+  padding: 0.3rem;
+}

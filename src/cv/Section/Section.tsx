@@ -1,13 +1,10 @@
-import './section.css';
+import type { Entry } from './types';
 
-type Entry = {
-  name: string;
-  prose: string;
-};
+import './section.css';
 
 type SectionProps = {
   title: string;
-  entries: Entry[] | undefined;
+  entries: Entry[];
 };
 
 export function Section({ title, entries }: SectionProps) {
@@ -18,9 +15,9 @@ export function Section({ title, entries }: SectionProps) {
     <section className="section">
       <h2>{title}</h2>
       {entries.map((entry) => (
-        <article key={entry.name} className="entry keep-together">
-          <h3>{entry.name}</h3>
-          <p>{entry.prose.trim()}</p>
+        <article key={entry.heading} className="entry keep-together">
+          <h3>{entry.heading}</h3>
+          <p>{entry.text.trim()}</p>
         </article>
       ))}
     </section>

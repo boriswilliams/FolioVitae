@@ -5,7 +5,7 @@ import { useTech } from '../context/tech';
 import { useWork } from '../context/work';
 
 import { Header } from './Header';
-import { Section } from './Section';
+import { isEntry, Section } from './Section';
 
 import './cv.css';
 
@@ -17,18 +17,46 @@ export function CV() {
   const work = useWork();
 
   return (
-    <div className="cv">
-      <main className="page">
+    <div className='cv'>
+      <main className='page'>
         <Header />
-        <div className="columns">
-          <div className="column">
-            <Section title="Education" entries={education?.schools} />
-            <Section title="Computing Skills" entries={tech?.technologies} />
+        <div className='columns'>
+          <div className='column'>
+            <Section
+              title='Education'
+              entries={education?.schools?.map(
+                ({ name, prose }) => ({ heading: name, text: prose })
+              ) ?? []}
+            />
+            <Section
+              title='Computing Skills'
+              entries={tech?.technologies?.map(
+                ({ name, prose }) => ({ heading: name, text: prose })
+              ) ?? []}
+            />
           </div>
-          <div className="column">
-            <Section title="Work History" entries={work?.jobs} />
-            <Section title="Projects" entries={projects?.projects} />
-            <Section title="Additional Skills" entries={skills?.skills} />
+          <div className='column'>
+            <Section
+              title='Work History'
+              entries={work?.jobs?.map(
+                ({ name, prose }) => ({ heading: name, text: prose })
+              ) ?? []}
+            />
+            <Section
+              title='Projects'
+              entries={projects?.projects?.map(
+                project => ({
+                  heading: project['title-cv'] ?? project['title'],
+                  text: project['text-cv'] ?? project['text']
+                })
+              ).filter(isEntry) ?? []}
+            />
+            <Section
+              title='Additional Skills'
+              entries={skills?.skills?.map(
+                ({ name, prose }) => ({ heading: name, text: prose })
+              ) ?? []}
+            />
           </div>
         </div>
       </main>

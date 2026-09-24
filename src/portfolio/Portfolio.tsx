@@ -1,7 +1,15 @@
-import { useProfile } from '../context/profile';
+import { Hero } from './Hero';
+import { Projects } from './Projects';
+import { Qualifications } from './Qualifications';
+
+import './portfolio.css';
 
 export function Portfolio() {
-  const profile = useProfile();
-
-  return <main>Portfolio{profile?.name ? ` of ${profile.name}` : ''}</main>;
+  return (
+    <main className='portfolio'>
+      <Hero />
+      <Projects />
+      <Qualifications />
+    </main>
+  );
 }
