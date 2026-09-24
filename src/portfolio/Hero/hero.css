@@ -1,46 +1,88 @@
-.portfolio .hero-photo {
+.portfolio .hero {
+  position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10rem 1rem 6rem;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.portfolio .hero:has(.hero-photo) {
   height: 100svh;
-  padding-bottom: 2rem;
-  background: center / cover no-repeat fixed;
+  padding-bottom: 4rem;
+  color: #ffffff;
+  background: #000000;
 }
 
-.portfolio .hero-band {
-  padding: 1.5rem 1rem 2rem;
-  color: var(--band-text);
-  background: var(--band);
+.portfolio .hero-photo {
+  position: absolute;
+  inset: 0;
+  background: center / cover no-repeat;
+  animation: hero-zoom 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-.portfolio .hero-band h1 {
-  font-size: clamp(2.25rem, 8vw, 4.5rem);
-  font-weight: 400;
-  line-height: 1.1;
+.portfolio .hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0) 60%);
 }
 
-.portfolio .hero-band p {
+.portfolio .hero-text {
+  position: relative;
+  animation: hero-rise 1s 0.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.portfolio .hero h1 {
+  font-size: clamp(3rem, 11vw, 7.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.portfolio .hero p {
   margin-top: 1rem;
-  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  opacity: 0.75;
 }
 
 .portfolio .hero-arrow {
-  padding: 10px;
-  border: solid var(--band-text);
-  border-width: 0 10px 10px 0;
-  filter: drop-shadow(0 0 3px rgb(0 0 0 / 0.5));
+  position: relative;
+  margin-top: 3rem;
+  padding: 7px;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  opacity: 0.8;
   rotate: 45deg;
-  animation: hero-bob 3s ease-in-out infinite;
+  animation: hero-bob 2.5s ease-in-out infinite;
+}
+
+@keyframes hero-zoom {
+  from {
+    scale: 1.08;
+    opacity: 0;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    translate: 0 2rem;
+    opacity: 0;
+  }
 }
 
 @keyframes hero-bob {
   50% {
-    translate: 0 12px;
+    translate: 0 8px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .portfolio .hero-arrow {
+  .portfolio :is(.hero-photo, .hero-text, .hero-arrow) {
     animation: none;
   }
 }

@@ -1,5 +1,5 @@
 .portfolio .projects {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 4rem 1rem 6rem;
+  padding: clamp(5rem, 12vw, 9rem) 1rem;
 }

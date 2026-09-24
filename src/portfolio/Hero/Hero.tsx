@@ -11,21 +11,20 @@ export function Hero() {
   const { name, description, photo } = profile;
 
   return (
-    <header className="hero">
+    <header className='hero'>
       {photo && (
         <div
-          className="hero-photo"
-          role="img"
+          className='hero-photo'
+          role='img'
           aria-label={name ? `Photo of ${name}` : 'Photo'}
           style={{ backgroundImage: `url(${JSON.stringify(photo)})` }}
-        >
-          <span className="hero-arrow" aria-hidden="true" />
-        </div>
+        />
       )}
-      <div className="hero-band">
+      <div className='hero-text'>
         {name && <h1>{name}</h1>}
         {description && <p>{description}</p>}
       </div>
+      {photo && <span className='hero-arrow' aria-hidden='true' />}
     </header>
   );
 }

@@ -15,22 +15,24 @@ type Project = {
 
 export function Project({ project }: { project: Project}) {
   return (
-    <article key={project.heading} className='project'>
-      <div className='project-media'>
-        {project.media && <Media src={project.media} alt={project.heading} />}
-      </div>
+    <article className='project reveal'>
+      {project.media && (
+        <div className='project-media'>
+          <Media src={project.media} alt={project.heading} />
+        </div>
+      )}
       <div className='project-text'>
         <h3>{project.heading}</h3>
         <Paragraphs text={project.text} />
+        {!!project.technologies?.length && (
+          <ul className='project-tech' aria-label='Technologies'>
+            {project.technologies.map(technology => <li key={technology}>{technology}</li>)}
+          </ul>
+        )}
         {project.link && (
           <a className='project-link' href={toHref(project.link)}>View project</a>
         )}
       </div>
-      {!!project.technologies?.length && (
-        <ul className='project-tech' aria-label='Technologies'>
-          {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
-        </ul>
-      )}
     </article>
   );
 }
