@@ -2,7 +2,8 @@ import { HashRouter, Navigate, Outlet, Route, Routes } from 'react-router';
 
 import { Nav } from './nav/Nav';
 
-import { ProfileProvider, useProfile } from './context/profile';
+import { useProfile } from './context/profile';
+import { Provider } from './context/provider';
 
 import { CV } from './cv';
 import { Portfolio } from './portfolio';
@@ -22,7 +23,7 @@ function Layout() {
 
 export function App() {
   return (
-    <ProfileProvider>
+    <Provider>
       <Title />
       <HashRouter>
         <Routes>
@@ -33,6 +34,6 @@ export function App() {
           </Route>
         </Routes>
       </HashRouter>
-    </ProfileProvider>
+    </Provider>
   );
 }

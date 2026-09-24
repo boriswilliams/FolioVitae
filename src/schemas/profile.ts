@@ -1,7 +1,8 @@
-import { type infer as Infer, strictObject, string } from 'zod';
+import { strictObject, string } from 'zod';
 
 export const ProfileSchema = strictObject({
-  name: string()
+  name: string().optional(),
+  description: string().optional(),
+  email: string().optional(),
+  website: string().optional()
 });
-
-export type Profile = Infer<typeof ProfileSchema>;

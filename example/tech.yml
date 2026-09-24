@@ -1,0 +1,20 @@
+technologies:
+  - name: Python
+    prose: |
+      4 years of experience including text analysis and creating a neural network framework as well as a birds-eye-view car drifting game.
+      Regularly practice on LeetCode.
+  - name: Java
+    prose: |
+      Over 3 years of experience during BSc and MSc in both group and individual projects.
+      Android application front-end development.
+      Regularly practice on LeetCode.
+  - name: SQL (Oracle & MySQL)
+    prose: |
+      Used for BSc & MSc projects and taught in MSc.
+  - name: Basic experience in
+    prose: |
+      C (BSc), XML, JavaScript, HTML, C++.
+  - name: Tools & methodologies
+    prose: |
+      Trello and Git used for project management of group and individual projects.
+      Learnt and tested on agile methodologies as part of my MSc.

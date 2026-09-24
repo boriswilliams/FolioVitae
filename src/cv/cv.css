@@ -1,3 +1,20 @@
+@page cv {
+  size: A4;
+  margin: 15mm 18mm;
+}
+
+.cv {
+  --accent: #1a6fd1;
+
+  page: cv;
+  flex: 1;
+  padding: 1rem 0 2rem;
+  font-family: 'Century Gothic', 'Avant Garde', 'URW Gothic', 'Questrial', sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  background: var(--behind);
+}
+
 .cv .page {
   width: min(210mm, 100% - 2rem);
   min-height: 297mm;
@@ -7,16 +24,53 @@
   box-shadow: 0 1px 4px rgb(0 0 0 / 0.15);
 }
 
-.cv {
-  page: cv;
-  flex: 1;
-  padding: 1rem 0 2rem;
-  background: var(--behind);
+.cv h1,
+.cv h2,
+.cv h3,
+.cv p {
+  margin: 0;
 }
 
-@page cv {
-  size: A4;
-  margin: 15mm 18mm;
+.cv h1,
+.cv h2,
+.cv h3 {
+  break-after: avoid;
+}
+
+.cv .keep-together,
+.cv li {
+  break-inside: avoid;
+}
+
+.cv a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cv .columns {
+  display: flow-root;
+  margin-top: 8mm;
+}
+
+.cv .column {
+  float: left;
+  width: calc(50% - 4mm);
+}
+
+.cv .column + .column {
+  margin-left: 8mm;
+}
+
+@media screen and (max-width: 40rem) {
+  .cv .column {
+    float: none;
+    width: auto;
+  }
+
+  .cv .column + .column {
+    margin-top: 7mm;
+    margin-left: 0;
+  }
 }
 
 @media print {
@@ -27,7 +81,6 @@
 
     padding: 0;
     color: var(--text);
-    font-size: 10.5pt;
     background: none;
   }
 
@@ -37,21 +90,5 @@
     margin: 0;
     padding: 0;
     box-shadow: none;
-  }
-
-  .cv a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .cv h1,
-  .cv h2,
-  .cv h3 {
-    break-after: avoid;
-  }
-
-  .cv .keep-together,
-  .cv li {
-    break-inside: avoid;
   }
 }

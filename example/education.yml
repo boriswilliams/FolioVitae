@@ -1,0 +1,17 @@
+schools:
+  - name: Newcastle Secondary School
+    prose: |
+      A-levels:
+      A* Maths
+      A* Further Maths
+      A Physics
+      A in FSMQ Additional Mathematics
+  - name: University of Durham
+    prose: |
+      (BSc Hons) Mathematics and Physics
+      October 2018 - July 2021
+  - name: University of Newcastle
+    prose: |
+      Computer Science MSc
+      Distinction
+      October 2021 - September 2022

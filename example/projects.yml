@@ -1,0 +1,11 @@
+projects:
+  - name: 3rd year BSc project
+    prose: |
+      Investigating the history of cosmic habitability.
+      Developed software in Python to find habitability from observable qualities of stars.
+  - name: Perspective - MSc project
+    prose: |
+      Android news aggregator app with a focus on suggesting alternative viewpoints to users.
+      Java and XML frontend.
+      Python backend.
+      MySQL database hosted by AWS.

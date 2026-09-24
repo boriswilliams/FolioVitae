@@ -1,0 +1,21 @@
+.cv .header h1 {
+  color: var(--accent);
+  font-size: 22pt;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cv .header .description {
+  margin-top: 0.4em;
+  color: var(--accent);
+  font-size: 13pt;
+}
+
+.cv .header .contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25em 1.5em;
+  margin-top: 0.3em;
+  font-style: normal;
+}

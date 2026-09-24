@@ -1,0 +1,23 @@
+.cv .section + .section {
+  margin-top: 7mm;
+}
+
+.cv .section h2 {
+  margin-bottom: 0.4em;
+  color: var(--accent);
+  font-size: 16pt;
+  font-weight: 400;
+}
+
+.cv .entry + .entry {
+  margin-top: 1.2em;
+}
+
+.cv .entry h3 {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.cv .entry p {
+  white-space: pre-line;
+}
