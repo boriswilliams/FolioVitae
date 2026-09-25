@@ -82,27 +82,13 @@
 }
 
 .portfolio .project-link {
-  display: inline-block;
   margin-top: 1.75rem;
-  padding: 1rem 1.4rem;
-  border-radius: 999px;
-  font-weight: 500;
-  line-height: 1;
-  text-box: trim-both cap alphabetic;
-  color: #ffffff;
-  background: var(--accent);
-  text-decoration: none;
-  transition: background 0.2s ease, scale 0.2s ease;
 }
 
 .portfolio .project-link::after {
   content: ' ›';
 }
 
-.portfolio .project-link:hover {
-  background: #0077ed;
-  scale: 1.03;
-}
 
 @media (max-width: 48rem) {
   .portfolio .project {

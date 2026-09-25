@@ -1,0 +1,80 @@
+.contact-page {
+  padding: calc(var(--nav-height) + clamp(2rem, 6vw, 5rem)) clamp(1.5rem, 6vw, 5rem) clamp(4rem, 9vw, 8rem);
+  background: var(--surface);
+}
+
+.contact-page h2 {
+  margin-bottom: 1rem;
+}
+
+.contact-page .contact-intro {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: var(--ink-soft);
+}
+
+.contact-page .contact-card {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: var(--radius);
+  text-align: left;
+  background: var(--paper);
+  box-shadow: 0 10px 40px rgb(0 0 0 / 0.05);
+}
+
+.contact-page .contact-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.contact-page .contact-card label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.contact-page .contact-card :is(input, textarea) {
+  padding: 0.85rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--surface);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.contact-page .contact-card :is(input, textarea):focus {
+  border-color: var(--accent);
+  outline: none;
+  background: var(--paper);
+  box-shadow: 0 0 0 4px rgb(0 113 227 / 0.15);
+}
+
+.contact-page .contact-card textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.contact-page .contact-card .button {
+  justify-self: start;
+}
+
+.contact-page .contact-trap {
+  display: none;
+}
+
+.contact-page .contact-error {
+  font-weight: 500;
+  color: #d70015;
+}
+
+.contact-page .contact-error a {
+  color: inherit;
+}

@@ -5,6 +5,7 @@ import { Nav } from './nav/Nav';
 import { useProfile } from './context/profile';
 import { Provider } from './context/provider';
 
+import { Contact } from './contact';
 import { CV } from './cv';
 import { Portfolio } from './portfolio';
 
@@ -31,6 +32,7 @@ export function App() {
           <Route element={<Layout />}>
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/cv" element={<CV />} />
+            <Route path="/contact" element={<Contact />} />
           </Route>
         </Routes>
       </HashRouter>

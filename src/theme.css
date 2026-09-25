@@ -1,0 +1,72 @@
+.theme {
+  --ink: #1d1d1f;
+  --ink-soft: #6e6e73;
+  --surface: #f5f5f7;
+  --accent: #0071e3;
+  --radius: 28px;
+
+  flex: 1;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Inter', system-ui, sans-serif;
+  text-align: center;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.theme h1,
+.theme h2,
+.theme h3,
+.theme p {
+  margin: 0;
+}
+
+.theme h2 {
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.theme .button {
+  display: inline-block;
+  padding: 1rem 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 500;
+  line-height: 1;
+  text-box: trim-both cap alphabetic;
+  color: #ffffff;
+  background: var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, scale 0.2s ease;
+}
+
+.theme .button:hover:not(:disabled) {
+  background: #0077ed;
+  scale: 1.03;
+}
+
+.theme .button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+@keyframes theme-reveal {
+  from {
+    translate: 0 3rem;
+    scale: 0.97;
+    opacity: 0;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .theme .reveal {
+      animation: theme-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}

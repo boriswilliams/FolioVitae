@@ -32,7 +32,7 @@ export function Project({ project }: { project: Project}) {
           </ul>
         )}
         {project.link && (
-          <a className='project-link' href={toHref(project.link)}>View project</a>
+          <a className='project-link button' href={toHref(project.link)}>View project</a>
         )}
       </div>
     </article>
