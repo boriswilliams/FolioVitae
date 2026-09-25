@@ -1,75 +1,65 @@
-# React + TypeScript + Vite
+# Folio Vitae
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A portfolio and printable CV rendered at runtime from YAML files. Build once, then serve it from any static host alongside your own data.
 
-Currently, two official plugins are available:
+## Data
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Put these files next to the built site (in `public/` before building), following the schemas in `src/schemas`. Any file can be left out.
 
-## React Compiler
+| File | Contents |
+| --- | --- |
+| `profile.yml` | Name, description, contact details, hero photo, contact form |
+| `projects.yml` | Projects for the portfolio and CV |
+| `education.yml` | Schools and qualifications |
+| `work.yml` | Work history |
+| `tech.yml` | Computing skills |
+| `skills.yml` | Additional skills |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Media files (images, videos) can sit alongside them and be referenced by relative path, e.g. `media: ./demo.mp4`. See `example/` for a complete set.
 
-## Expanding the ESLint configuration
+## Develop and build
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev                          # serves the data in example/
+npm run build && npm run preview     # builds with public/ and serves dist/
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Deploy to a VPS
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+On the server:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+apt update && apt install nginx -y
 ```
+
+Set `server_name your.domain www.your.domain;` in `/etc/nginx/sites-enabled/default`, then run `systemctl reload nginx`.
+
+From your machine:
+
+```bash
+scp -r dist/* root@<vps-ip>:/var/www/html/
+```
+
+For TLS (recommended), on the server:
+
+```bash
+apt install certbot python3-certbot-nginx -y
+certbot --nginx -d your.domain -d www.your.domain
+```
+
+## Contact form
+
+The contact page posts to a form service. Set its endpoint in `profile.yml` to show the page; leave it out to hide it.
+
+```yaml
+contact-form: https://formspree.io/f/your-form-id
+```
+
+These services work as-is:
+
+- [Formspree](https://formspree.io)
+- [Getform](https://getform.io)
+- [Basin](https://usebasin.com)
+
+The `email` field is used as the reply-to address, and the hidden `_gotcha` field is a honeypot for spam bots.
