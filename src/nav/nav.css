@@ -25,6 +25,9 @@
 
 .nav a,
 .nav button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
   padding: 0.45rem 1.1rem;
   border: 1px solid rgb(255 255 255 / 0.6);
   border-radius: 999px;
@@ -32,6 +35,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.02em;
+  white-space: nowrap;
   color: var(--text);
   background: rgb(255 255 255 / 0.7);
   box-shadow:
@@ -69,6 +73,26 @@
 
 .nav-actions {
   margin-left: auto;
+}
+
+.nav-icon {
+  display: none;
+}
+
+.nav[data-compact='true'] :is(a, button) {
+  padding: 0.55rem;
+}
+
+.nav[data-compact='true'] .nav-icon {
+  display: block;
+}
+
+.nav[data-compact='true'] .nav-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
 }
 
 @media (prefers-reduced-motion: reduce) {
