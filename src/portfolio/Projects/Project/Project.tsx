@@ -10,6 +10,7 @@ type Project = {
   text: string;
   start?: string;
   media?: string;
+  'media-shadow'?: boolean;
   link?: string;
   technologies?: string[];
   ai?: 'free' | 'search' | 'tools';
@@ -25,7 +26,7 @@ export function Project({ project }: { project: Project}) {
   return (
     <article className='project reveal'>
       {project.media && (
-        <div className='project-media'>
+        <div className={project['media-shadow'] === false ? 'project-media project-media-flat' : 'project-media'}>
           <Media src={project.media} alt={project.heading} />
         </div>
       )}

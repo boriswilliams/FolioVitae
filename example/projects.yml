@@ -34,6 +34,7 @@ projects:
 
       The program is written in Python, thoroughly tested and commented.
     media: https://picsum.photos/id/180/960/720
+    media-shadow: false
     link: https://github.com/janedoe/sudoku-solver
     ai: free
     technologies:

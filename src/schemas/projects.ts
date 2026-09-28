@@ -1,4 +1,4 @@
-import { array, enum as enumeration, strictObject, string } from 'zod';
+import { array, boolean, enum as enumeration, strictObject, string } from 'zod';
 
 export const ProjectsSchema = strictObject({
   projects: array(strictObject({
@@ -10,6 +10,7 @@ export const ProjectsSchema = strictObject({
     'text-cv': string().optional(),
     'text-portfolio': string().optional(),
     media: string().optional(),
+    'media-shadow': boolean().optional(),
     link: string().optional(),
     ai: enumeration(['free', 'search', 'tools']).optional(),
     technologies: array(string()).optional()
