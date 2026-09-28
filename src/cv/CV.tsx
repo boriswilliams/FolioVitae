@@ -10,7 +10,7 @@ import { formatRange } from './formatRange';
 import { usePackedPages } from './usePackedPages';
 
 import { Header } from './Header';
-import { isEntry, Section } from './Section';
+import { isEntry, Section, type Table } from './Section';
 
 import './cv.css';
 
@@ -37,9 +37,12 @@ export function CV() {
         list
       })
     ) ?? [],
-    'Computing Skills': tech?.technologies?.map(
-      ({ name, prose }) => ({ heading: name, text: prose })
-    ) ?? [],
+    'Experience': {
+      columns: ['Technology', 'Professional', 'Personal'],
+      rows: tech?.technologies?.map(
+        ({ name, professional, personal }) => [name, professional ?? '', personal ?? '']
+      ) ?? []
+    } satisfies Table,
     'Projects': projects?.projects?.map(
       project => ({
         heading: project['title-cv'] ?? project['title'],
@@ -52,7 +55,7 @@ export function CV() {
   };
 
   const cvRef = useRef<HTMLDivElement>(null);
-  const pages = usePackedPages(cvRef, Object.keys(sections), {
+  const pages = usePackedPages(cvRef, Object.keys(sections) as (keyof typeof sections)[], {
     firstSection: 'Education',
     sectionsOnFirstPage: ['Work History']
   });
@@ -66,7 +69,7 @@ export function CV() {
             {columns.map((titles, column) => (
               <div key={column} className='column'>
                 {titles.map(title => (
-                  <Section key={title} title={title} entries={sections[title as keyof typeof sections]} />
+                  <Section key={title} title={title} content={sections[title]} />
                 ))}
               </div>
             ))}

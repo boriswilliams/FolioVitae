@@ -7,6 +7,11 @@ export type Entry = {
   list?: string[];
 };
 
+export type Table = {
+  columns: string[];
+  rows: string[][];
+};
+
 export function isEntry(x: unknown): x is Entry & { text: string } {
   if (!isRecord(x))
     return false;

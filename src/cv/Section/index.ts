@@ -1,3 +1,3 @@
 export { Section } from './Section';
 
-export { isEntry } from './types';
+export { isEntry, type Table } from './types';

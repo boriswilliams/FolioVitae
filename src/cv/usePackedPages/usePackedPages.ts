@@ -4,8 +4,12 @@ import { findBestPacking } from './findBestPacking';
 import type { Page, Rules } from './types';
 import { COLUMN_HEIGHT, PAGE_PADDING } from './values';
 
-export function usePackedPages(ref: RefObject<HTMLElement | null>, keys: string[], rules: Rules = {}): Page[] {
-  const [pages, setPages] = useState<Page[]>(() => [[keys, []]]);
+export function usePackedPages<T extends string>(
+  ref: RefObject<HTMLElement | null>,
+  keys: T[],
+  rules: Rules = {}
+): Page<T>[] {
+  const [pages, setPages] = useState<Page<T>[]>(() => [[keys, []]]);
   
   const serializedKeys = keys.join('\n');
   const serializedRules = JSON.stringify(rules);
@@ -15,7 +19,7 @@ export function usePackedPages(ref: RefObject<HTMLElement | null>, keys: string[
     if (!cv) return;
 
     const rules = JSON.parse(serializedRules);
-    const keys = serializedKeys.split('\n');
+    const keys = serializedKeys.split('\n') as T[];
 
     const measure = () => {
       
@@ -37,7 +41,7 @@ export function usePackedPages(ref: RefObject<HTMLElement | null>, keys: string[
       const unmeasured = keys.filter(key => !sections.has(key));
       const { order, columns: placed } = findBestPacking(measured, measured.map(key => sections.get(key) ?? 0), pageOneColumnHeight, rules);
 
-      const next: Page[] = [[[], []]];
+      const next: Page<T>[] = [[[], []]];
       order.forEach((index, n) => {
         const pageIndex = Math.floor(placed[n] / 2);
         while (next.length <= pageIndex)
