@@ -12,10 +12,10 @@ export function Section({ title, entries }: SectionProps) {
     return null;
 
   return (
-    <section className="section">
+    <section className="section" data-section={title}>
       <h2>{title}</h2>
       {entries.map((entry) => (
-        <article key={entry.heading} className="entry keep-together">
+        <article key={entry.heading} className="entry">
           <h3>{entry.heading}</h3>
           {entry.dates && <p className="entry-dates">{entry.dates}</p>}
           {entry.text && <p>{entry.text.trim()}</p>}

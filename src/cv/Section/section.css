@@ -1,3 +1,7 @@
+.cv .section {
+  break-inside: avoid;
+}
+
 .cv .section + .section {
   margin-top: 7mm;
 }

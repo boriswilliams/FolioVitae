@@ -7,6 +7,9 @@
   --accent: #1a6fd1;
 
   page: cv;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   flex: 1;
   padding: calc(var(--nav-height) + 1rem) 0 2rem;
   font-family: 'Century Gothic', 'Avant Garde', 'URW Gothic', 'Questrial', sans-serif;
@@ -24,6 +27,10 @@
   box-shadow: 0 1px 4px rgb(0 0 0 / 0.15);
 }
 
+.cv .page + .page {
+  break-before: page;
+}
+
 .cv h1,
 .cv h2,
 .cv h3,
@@ -37,7 +44,11 @@
   break-after: avoid;
 }
 
-.cv .keep-together,
+.cv p {
+  orphans: 2;
+  widows: 2;
+}
+
 .cv li {
   break-inside: avoid;
 }
@@ -48,29 +59,30 @@
 }
 
 .cv .columns {
-  display: flow-root;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8mm;
+  align-items: start;
+}
+
+.cv .header + .columns {
   margin-top: 8mm;
 }
 
-.cv .column {
-  float: left;
-  width: calc(50% - 4mm);
-}
-
-.cv .column + .column {
-  margin-left: 8mm;
-}
-
 @media screen and (max-width: 40rem) {
-  .cv .column {
-    float: none;
-    width: auto;
+  .cv .columns {
+    grid-template-columns: 1fr;
+    gap: 7mm;
   }
+}
 
-  .cv .column + .column {
-    margin-top: 7mm;
-    margin-left: 0;
-  }
+/* Print layout, applied briefly while measuring sections to arrange them */
+.cv.measuring .page {
+  width: 210mm;
+}
+
+.cv.measuring .columns {
+  grid-template-columns: 1fr 1fr;
 }
 
 @media print {
@@ -79,6 +91,7 @@
     --muted: #444444;
     --background: #ffffff;
 
+    display: block;
     padding: 0;
     color: var(--text);
     background: none;
