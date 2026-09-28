@@ -12,7 +12,14 @@ type Project = {
   media?: string;
   link?: string;
   technologies?: string[];
+  ai?: 'free' | 'search' | 'tools';
 }
+
+const aiLabels = {
+  free: 'AI free',
+  search: 'AI assisted search',
+  tools: 'AI tools used'
+};
 
 export function Project({ project }: { project: Project}) {
   return (
@@ -24,6 +31,7 @@ export function Project({ project }: { project: Project}) {
       )}
       <div className='project-text'>
         <h3>{project.heading}</h3>
+        {project.ai && <span className={`project-ai project-ai-${project.ai}`}>{aiLabels[project.ai]}</span>}
         {project.start && <time className='project-start'>{project.start}</time>}
         <Paragraphs text={project.text} />
         {!!project.technologies?.length && (

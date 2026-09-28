@@ -19,6 +19,7 @@ projects:
       It relies on structured object oriented Java, carefully tuned SQL queries and functional XML design.
     media: https://picsum.photos/id/160/540/960
     link: https://example.com/perspective
+    ai: search
     technologies:
       - Java
       - XML
@@ -34,6 +35,7 @@ projects:
       The program is written in Python, thoroughly tested and commented.
     media: https://picsum.photos/id/180/960/720
     link: https://github.com/janedoe/sudoku-solver
+    ai: free
     technologies:
       - Python
   - title-cv: Folio Vitae
@@ -46,6 +48,7 @@ projects:
 
       TypeScript and React are used for the pages and intro animation, and CSS for the layout and print styles.
     link: https://github.com/boriswilliams/FolioVitae
+    ai: tools
     technologies:
       - TypeScript
       - React
