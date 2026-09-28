@@ -6,5 +6,6 @@ export const ProfileSchema = strictObject({
   email: string().optional(),
   website: string().optional(),
   photo: string().optional(),
+  about: string().optional(),
   'contact-form': string().optional()
 });

@@ -2,7 +2,7 @@
   --line: #d2d2d7;
 
   padding: clamp(4rem, 9vw, 8rem) clamp(1.5rem, 6vw, 5rem);
-  background: var(--surface);
+  background: var(--paper);
 }
 
 .portfolio .qualifications ol {
@@ -32,8 +32,7 @@
   position: relative;
   padding: 2rem;
   border-radius: var(--radius);
-  background: var(--paper);
-  box-shadow: 0 10px 40px rgb(0 0 0 / 0.05);
+  background: var(--surface);
 }
 
 .portfolio .qualifications ol > li::before {
@@ -45,7 +44,7 @@
   height: 1rem;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 5px var(--surface);
+  box-shadow: 0 0 0 5px var(--paper);
 }
 
 .portfolio .qualifications h3 {

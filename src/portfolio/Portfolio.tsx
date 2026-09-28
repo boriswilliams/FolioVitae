@@ -1,3 +1,4 @@
+import { About } from './About';
 import { Hero } from './Hero';
 import { Projects } from './Projects';
 import { Qualifications } from './Qualifications';
@@ -10,6 +11,7 @@ export function Portfolio() {
     <main className='theme portfolio'>
       <Hero />
       <Projects />
+      <About />
       <Qualifications />
     </main>
   );

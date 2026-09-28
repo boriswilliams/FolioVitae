@@ -1,7 +1,7 @@
 import { toHref } from '../../../utils/href';
+import { Paragraphs } from '../../Paragraphs';
 
 import { Media } from './Media';
-import { Paragraphs } from './Paragraphs';
 
 import './project.css';
 
