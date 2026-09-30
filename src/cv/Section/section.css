@@ -3,11 +3,11 @@
 }
 
 .cv .section + .section {
-  margin-top: 7mm;
+  margin-top: 6mm;
 }
 
 .cv .section h2 {
-  margin-bottom: 0.4em;
+  margin-bottom: 0.3em;
   color: var(--accent);
   font-size: 16pt;
   font-weight: 400;
