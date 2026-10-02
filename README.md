@@ -8,7 +8,7 @@ Put these files next to the built site (in `public/` before building), following
 
 | File | Contents |
 | --- | --- |
-| `profile.yml` | Name, description, contact details, hero photo, about text, contact form |
+| `profile.yml` | Name, description, contact details, photo, about text, contact form |
 | `projects.yml` | Projects for the portfolio and CV |
 | `education.yml` | Schools and qualifications |
 | `work.yml` | Work history |

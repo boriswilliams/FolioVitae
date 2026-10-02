@@ -6,7 +6,7 @@
   --radius: 28px;
 
   flex: 1;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Inter', system-ui, sans-serif;
+  font-family: var(--font-display);
   text-align: center;
   color: var(--ink);
   -webkit-font-smoothing: antialiased;

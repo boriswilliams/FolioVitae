@@ -1,0 +1,58 @@
+.nav-brand {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 auto 0 -0.3rem;
+  padding: 0.3rem 1.1rem 0.3rem 0.3rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  color: var(--text);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  backdrop-filter: blur(10px);
+  transition: backdrop-filter 0.3s ease;
+}
+
+.nav-brand-away {
+  display: none;
+}
+
+.nav-brand-waiting {
+  backdrop-filter: none;
+  transition: none;
+}
+
+.nav-brand-waiting > * {
+  visibility: hidden;
+}
+
+.nav-brand-avatar {
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: center / cover no-repeat;
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+}
+
+.nav-brand-name {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.nav-brand-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  opacity: 0.75;
+}

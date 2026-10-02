@@ -1,4 +1,5 @@
 import { About } from './About';
+import { GetInTouch } from './GetInTouch';
 import { Hero } from './Hero';
 import { Projects } from './Projects';
 import { Qualifications } from './Qualifications';
@@ -13,6 +14,7 @@ export function Portfolio() {
       <Projects />
       <About />
       <Qualifications />
+      <GetInTouch />
     </main>
   );
 }

@@ -1,0 +1,39 @@
+.print-button {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(1rem, 3vw, 2.5rem);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--text);
+  box-shadow:
+    0 2px 4px rgb(0 0 0 / 0.12),
+    0 8px 24px rgb(0 0 0 / 0.18);
+  cursor: pointer;
+  transition: translate 0.15s ease, box-shadow 0.15s ease;
+}
+
+.print-button:hover {
+  translate: 0 -2px;
+  box-shadow:
+    0 4px 8px rgb(0 0 0 / 0.14),
+    0 12px 32px rgb(0 0 0 / 0.22);
+}
+
+.print-button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .print-button {
+    transition: none;
+  }
+}

@@ -1,20 +1,27 @@
+import { useLayoutEffect } from 'react';
 import { NavLink, useMatch } from 'react-router';
 
+import { setBrandInNav } from '../context/brand';
 import { useProfile } from '../context/profile';
-import { PrintButton } from '../cv/PrintButton';
 
-import { ContactIcon, CvIcon, DownloadIcon, PortfolioIcon } from './icons';
+import { Brand } from './Brand';
+import { ContactIcon, CvIcon, PortfolioIcon } from './icons';
 import { useAutoHide } from './useAutoHide';
-import { useCompact } from './useCompact';
+import { useFit } from './useFit';
 
 import './nav.css';
 
 export function Nav() {
   const isCv = useMatch('/cv') !== null;
-  const hasContact = !!useProfile()?.['contact-form'];
+  const profile = useProfile();
+  const hasContact = !!profile?.['contact-form'];
 
   const { ref, hidden } = useAutoHide<HTMLElement>(!isCv);
-  const compact = useCompact(ref, `${isCv} ${hasContact}`);
+  const level = useFit(ref, [hasContact, profile?.name, profile?.description, profile?.photo].join(' '), 4);
+  const brandInNav = level < 2;
+  const compact = level % 2 === 1;
+
+  useLayoutEffect(() => setBrandInNav(brandInNav), [brandInNav]);
 
   return (
     <nav
@@ -23,6 +30,7 @@ export function Nav() {
       data-hidden={hidden}
       data-compact={compact}
     >
+      <Brand shown={brandInNav} />
       <NavLink to="/portfolio">
         <PortfolioIcon />
         <span className="nav-label">Portfolio</span>
@@ -36,14 +44,6 @@ export function Nav() {
           <ContactIcon />
           <span className="nav-label">Contact</span>
         </NavLink>
-      )}
-      {isCv && (
-        <div className="nav-actions">
-          <PrintButton>
-            <DownloadIcon />
-            <span className="nav-label">Download CV</span>
-          </PrintButton>
-        </div>
       )}
     </nav>
   );

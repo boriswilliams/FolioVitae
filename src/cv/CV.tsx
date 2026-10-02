@@ -10,6 +10,7 @@ import { formatRange } from './formatRange';
 import { usePackedPages } from './usePackedPages';
 
 import { Header } from './Header';
+import { PrintButton } from './PrintButton';
 import { isEntry, Section, type Table } from './Section';
 
 import './cv.css';
@@ -76,6 +77,7 @@ export function CV() {
           </div>
         </main>
       ))}
+      <PrintButton />
     </div>
   );
 }
