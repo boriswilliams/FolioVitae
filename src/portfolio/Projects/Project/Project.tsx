@@ -49,12 +49,13 @@ export function Project({ project }: { project: Project}) {
   const slotRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const animations = useRef<Animation[]>([]);
   const closing = useRef(false);
-  // The size of the text preview on the collapsed card, to shrink back to
-  const preview = useRef<Keyframe>({});
+  // The size of the text preview and media on the collapsed card, to shrink back to
+  const preview = useRef<{ text: Keyframe; media: Keyframe }>({ text: {}, media: {} });
   const [open, setOpen] = useState(false);
 
   // With media, only a preview of the text fits on the card, so it opens to show
@@ -78,8 +79,13 @@ export function Project({ project }: { project: Project}) {
     '--preview-fade': getComputedStyle(text).getPropertyValue('--preview-fade')
   });
 
-  // Moves the card between two boxes, growing or shrinking the text and fading the backdrop and close button to match
-  const animate = (card: HTMLElement, from: Keyframe, to: Keyframe, text: Keyframe[], fade: number[]) => {
+  const mediaFrame = (): Keyframe => {
+    const rect = mediaRef.current?.firstElementChild?.getBoundingClientRect();
+    return rect ? { width: `${rect.width}px`, height: `${rect.height}px` } : {};
+  };
+
+  // Moves the card between two boxes, growing or shrinking the text and media and fading the backdrop and close button to match
+  const animate = (card: HTMLElement, from: Keyframe, to: Keyframe, text: Keyframe[], media: Keyframe[], fade: number[]) => {
     const options: KeyframeAnimationOptions = {
       duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 400,
       easing: EASING,
@@ -89,6 +95,7 @@ export function Project({ project }: { project: Project}) {
     animations.current = [
       card.animate([from, to], options),
       ...textRef.current ? [textRef.current.animate(text.map(frame => ({ ...frame, flex: 'none', overflow: 'hidden' })), options)] : [],
+      ...mediaRef.current?.firstElementChild ? [mediaRef.current.firstElementChild.animate(media.map(frame => ({ ...frame, maxWidth: 'none', maxHeight: 'none' })), options)] : [],
       ...[backdropRef.current, closeRef.current].filter(element => element !== null)
         .map(element => element.animate({ opacity: fade, visibility: ['visible', 'visible'] }, options))
     ];
@@ -109,12 +116,12 @@ export function Project({ project }: { project: Project}) {
 
     // Hold the card's place in the page while it's lifted out
     const from = card.getBoundingClientRect();
-    preview.current = textFrame(text);
+    preview.current = { text: textFrame(text), media: mediaFrame() };
     slot.style.height = `${from.height}px`;
     flushSync(() => setOpen(true));
 
     const to = card.getBoundingClientRect();
-    animate(card, box(from, 'none'), box(to, getComputedStyle(card).boxShadow), [preview.current, textFrame(text)], [0, 1])
+    animate(card, box(from, 'none'), box(to, getComputedStyle(card).boxShadow), [preview.current.text, textFrame(text)], [preview.current.media, mediaFrame()], [0, 1])
       .then(clearAnimations, () => {});
     card.focus({ preventScroll: true });
   };
@@ -132,7 +139,7 @@ export function Project({ project }: { project: Project}) {
     const from = box(card.getBoundingClientRect(), getComputedStyle(card).boxShadow);
     const fade = Number(getComputedStyle(backdropRef.current ?? card).opacity);
 
-    animate(card, from, box(slot.getBoundingClientRect(), 'none'), [textFrame(text), preview.current], [fade, 0])
+    animate(card, from, box(slot.getBoundingClientRect(), 'none'), [textFrame(text), preview.current.text], [mediaFrame(), preview.current.media], [fade, 0])
       .then(() => {
         flushSync(() => setOpen(false));
         slot.style.height = '';
@@ -176,7 +183,7 @@ export function Project({ project }: { project: Project}) {
         )}
         <div className='project-body'>
           {project.media && (
-            <div className={project['media-shadow'] === false ? 'project-media project-media-flat' : 'project-media'}>
+            <div ref={mediaRef} className={project['media-shadow'] === false ? 'project-media project-media-flat' : 'project-media'}>
               <Media src={project.media} alt={project.heading} />
             </div>
           )}

@@ -1,5 +1,11 @@
 .portfolio .projects {
   max-width: 1100px;
   margin: 0 auto;
-  padding: clamp(3rem, 6vw, 5rem) 1rem clamp(4rem, 9vw, 8rem);
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(4rem, 9vw, 8rem);
+}
+
+@media (max-width: 48rem) {
+  .portfolio .projects h2 {
+    display: none;
+  }
 }
