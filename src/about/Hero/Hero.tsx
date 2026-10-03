@@ -3,6 +3,7 @@ import { flushSync } from 'react-dom';
 
 import { brandTargets, introPlayed, markIntroPlayed, setIntroPlaying, useBrandInNav, useIntroPlaying } from '../../context/brand';
 import { useProfile } from '../../context/profile';
+import { ScrollArrow } from '../../ScrollArrow';
 
 import './hero.css';
 
@@ -105,7 +106,7 @@ export function Hero() {
       // Drop the entrance animations (ending where they would have) so their transforms
       // can't become the frame the fixed positions are measured from
       hero.getAnimations({ subtree: true }).forEach(animation => {
-        if (animation instanceof CSSAnimation && animation.animationName !== 'hero-bob')
+        if (animation instanceof CSSAnimation && animation.animationName !== 'scroll-arrow-bob')
           animation.cancel();
       });
 
@@ -186,7 +187,7 @@ export function Hero() {
         {name && <h1 ref={nameRef}>{name}</h1>}
         {description && <p ref={titleRef}>{description}</p>}
       </div>
-      {photo && <span ref={arrowRef} className='hero-arrow' aria-hidden='true' />}
+      {photo && <ScrollArrow ref={arrowRef} className='hero-arrow' />}
     </header>
   );
 }

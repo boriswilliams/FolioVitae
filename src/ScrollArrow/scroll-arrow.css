@@ -1,0 +1,20 @@
+.scroll-arrow {
+  padding: 7px;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  opacity: 0.8;
+  rotate: 45deg;
+  animation: scroll-arrow-bob 2.5s ease-in-out infinite;
+}
+
+@keyframes scroll-arrow-bob {
+  50% {
+    translate: 0 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-arrow {
+    animation: none;
+  }
+}
