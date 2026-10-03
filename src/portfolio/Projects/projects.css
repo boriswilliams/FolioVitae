@@ -5,6 +5,10 @@
 }
 
 @media (max-width: 48rem) {
+  .portfolio .projects {
+    padding-top: 1.25rem;
+  }
+
   .portfolio .projects h2 {
     display: none;
   }
