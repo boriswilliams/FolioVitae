@@ -1,7 +1,7 @@
 import { Bio } from './Bio';
-import { GetInTouch } from './GetInTouch';
 import { Hero } from './Hero';
 import { Qualifications } from './Qualifications';
+import { SeePortfolio } from './SeePortfolio';
 
 import '../theme.css';
 import './about.css';
@@ -12,7 +12,7 @@ export function About() {
       <Hero />
       <Bio />
       <Qualifications />
-      <GetInTouch />
+      <SeePortfolio />
     </main>
   );
 }
