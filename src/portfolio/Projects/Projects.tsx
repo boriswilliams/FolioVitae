@@ -18,7 +18,7 @@ export function Projects() {
 
   return (
     <section className='projects'>
-      <h2 className='reveal'>Example projects</h2>
+      <h2 className='reveal'>Side Projects</h2>
       {projects.map(project => <Project key={project.heading} project={project} />)}
     </section>
   );
