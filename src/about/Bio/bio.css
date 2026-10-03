@@ -1,14 +1,13 @@
-.portfolio .about {
-  padding: clamp(4rem, 9vw, 8rem) clamp(1.5rem, 6vw, 5rem);
-  background: var(--surface);
+.about-page .bio {
+  padding: var(--page-top) clamp(1.5rem, 6vw, 5rem) clamp(4rem, 9vw, 8rem);
 }
 
-.portfolio .about-text {
+.about-page .bio-text {
   max-width: 48rem;
   margin: 0 auto;
 }
 
-.portfolio .about-text p {
+.about-page .bio-text p {
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-weight: 500;
   line-height: 1.5;
@@ -16,6 +15,6 @@
   color: var(--ink-soft);
 }
 
-.portfolio .about-text p + p {
+.about-page .bio-text p + p {
   margin-top: 1.25em;
 }

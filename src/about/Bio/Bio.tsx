@@ -1,18 +1,18 @@
 import { useProfile } from '../../context/profile';
-import { Paragraphs } from '../Paragraphs';
+import { Paragraphs } from '../../Paragraphs';
 
-import './about.css';
+import './bio.css';
 
-export function About() {
+export function Bio() {
   const about = useProfile()?.about;
 
   if (!about?.trim())
     return null;
 
   return (
-    <section className='about'>
+    <section className='bio'>
       <h2 className='reveal'>About me</h2>
-      <div className='about-text reveal'>
+      <div className='bio-text reveal'>
         <Paragraphs text={about} />
       </div>
     </section>

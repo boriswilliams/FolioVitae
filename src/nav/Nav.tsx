@@ -5,7 +5,7 @@ import { setBrandInNav } from '../context/brand';
 import { useProfile } from '../context/profile';
 
 import { Brand } from './Brand';
-import { ContactIcon, CvIcon, PortfolioIcon } from './icons';
+import { AboutIcon, ContactIcon, CvIcon, PortfolioIcon } from './icons';
 import { useAutoHide } from './useAutoHide';
 import { useFit } from './useFit';
 
@@ -31,6 +31,10 @@ export function Nav() {
       data-compact={compact}
     >
       <Brand shown={brandInNav} />
+      <NavLink to="/about">
+        <AboutIcon />
+        <span className="nav-label">About</span>
+      </NavLink>
       <NavLink to="/portfolio">
         <PortfolioIcon />
         <span className="nav-label">Portfolio</span>

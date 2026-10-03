@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from 'react';
 
 // The name and photo sit in the nav when it has room for them, otherwise the
-// portfolio shows them underneath. The portfolio intro lands on whichever is in
+// about page shows them underneath. Its intro lands on whichever is in
 // use, so the nav's copy stays hidden while it plays and registers its elements
 // here as the intro's targets.
 
@@ -41,7 +41,7 @@ export function setIntroPlaying(introPlaying: boolean) {
 }
 
 // Kept in memory, so the intro plays on each load of the site but not when
-// coming back to the portfolio from another page
+// coming back to the about page from another page
 export function introPlayed() {
   return state.introPlayed;
 }

@@ -3,7 +3,7 @@ import { flushSync } from 'react-dom';
 
 import { toHref } from '../../../utils/href';
 
-import { Paragraphs } from '../../Paragraphs';
+import { Paragraphs } from '../../../Paragraphs';
 
 import { Media } from './Media';
 

@@ -1,3 +1,4 @@
 .portfolio {
+  padding-top: var(--nav-height);
   background: var(--paper);
 }
