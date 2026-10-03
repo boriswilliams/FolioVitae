@@ -1,4 +1,5 @@
-import { HashRouter, Navigate, Outlet, Route, Routes } from 'react-router';
+import { useLayoutEffect } from 'react';
+import { HashRouter, Navigate, Outlet, Route, Routes, useLocation } from 'react-router';
 
 import { Nav } from './nav/Nav';
 
@@ -17,6 +18,13 @@ function Title() {
 }
 
 function Layout() {
+  const { pathname } = useLocation();
+
+  // Each page starts at the top rather than inheriting the previous page's scroll
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+
   return <>
     <Nav />
     <Outlet />
