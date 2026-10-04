@@ -11,6 +11,10 @@ const INTRO_LENGTH = 1800;
 const DURATION = 900;
 const EASING = 'cubic-bezier(0.2, 0, 0, 1)';
 
+function canPlayIntro() {
+  return !introPlayed() && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 // Where and how an element is drawn, so it can be flown between layouts above everything else
 function placement(element: HTMLElement): Keyframe {
   const rect = element.getBoundingClientRect();
@@ -51,13 +55,32 @@ export function Hero() {
   const titleRef = useRef<HTMLParagraphElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const arrowRef = useRef<HTMLSpanElement>(null);
+  const [loadedPhoto, setLoadedPhoto] = useState<string>();
 
   const photo = profile?.photo;
+  const photoLoaded = !photo || loadedPhoto === photo;
   const intro = introPlaying && !landing;
+
+  // Holds the entrance back until the photo can be drawn whole, rather than it appearing part way through
+  useEffect(() => {
+    if (!photo)
+      return;
+    let current = true;
+    const image = new Image();
+    image.src = photo;
+    const done = () => {
+      if (current)
+        setLoadedPhoto(photo);
+    };
+    image.decode().then(done, done);
+    return () => {
+      current = false;
+    };
+  }, [photo]);
 
   // Starts before the first paint, so the nav never shows its copy of the name first
   useLayoutEffect(() => {
-    if (!photo || introPlayed() || window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    if (!photo || !canPlayIntro())
       return;
     setIntroPlaying(true);
     return () => setIntroPlaying(false);
@@ -90,7 +113,7 @@ export function Hero() {
   }, [profile, intro, brandInNav, avatarHidden]);
 
   useEffect(() => {
-    if (!intro)
+    if (!intro || !photoLoaded)
       return;
 
     let collapsed = false;
@@ -156,7 +179,11 @@ export function Hero() {
       clearTimeout(timer);
       events.forEach(event => window.removeEventListener(event, collapse));
     };
-  }, [intro, brandInNav]);
+  }, [intro, brandInNav, photoLoaded]);
+
+  // Holds the intro's blank screen while the profile loads, so the rest of the page doesn't show first
+  if (profile === undefined)
+    return canPlayIntro() ? <header className='hero hero-intro' /> : null;
 
   if (!profile)
     return null;
@@ -167,7 +194,8 @@ export function Hero() {
     intro && 'hero-intro',
     !intro && brandInNav && 'hero-spacer',
     landing && 'hero-landing',
-    avatarHidden && 'hero-avatar-hidden'
+    avatarHidden && 'hero-avatar-hidden',
+    !photoLoaded && 'hero-loading'
   ].filter(Boolean).join(' ');
 
   return (

@@ -8,9 +8,10 @@ export function createDataContext<S extends ZodObject>(name: string, schema: S) 
 
   type T = Infer<S>;
 
-  const DataContext = createContext<T | null>(null);
+  const DataContext = createContext<T | null | undefined>(null);
 
-  function useData(): T | null {
+  // undefined while the file is loading, null when there isn't one
+  function useData(): T | null | undefined {
     return useContext(DataContext);
   }
 
@@ -20,7 +21,7 @@ export function createDataContext<S extends ZodObject>(name: string, schema: S) 
 
   function DataProvider({ children }: DataProviderProps) {
     
-    const [data, setData] = useState<T | null>(null);
+    const [data, setData] = useState<T | null | undefined>(undefined);
 
     useEffect(() => {
       (async () => {
@@ -35,8 +36,10 @@ export function createDataContext<S extends ZodObject>(name: string, schema: S) 
             break;
         }
         
-        if (response.status === 404)
+        if (response.status === 404) {
+          setData(null);
           return;
+        }
 
         if (!response.ok)
           throw new Error(`Could not load ${url} (${response.status} ${response.statusText})`);
