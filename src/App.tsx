@@ -1,15 +1,15 @@
 import { useLayoutEffect } from 'react';
 import { HashRouter, Navigate, Outlet, Route, Routes, useLocation } from 'react-router';
 
-import { Nav } from './nav/Nav';
-
 import { useProfile } from './context/profile';
 import { Provider } from './context/provider';
 
-import { About } from './about';
-import { Contact } from './contact';
-import { CV } from './cv';
-import { Portfolio } from './portfolio';
+import { Nav } from './Nav';
+
+import { About } from './About';
+import { Contact } from './Contact';
+import { CV } from './CV';
+import { Portfolio } from './Portfolio';
 
 function Title() {
   const profile = useProfile();
