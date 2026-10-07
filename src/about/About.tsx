@@ -1,7 +1,8 @@
+import { NextPage } from '../NextPage';
+
 import { Bio } from './Bio';
 import { Hero } from './Hero';
 import { Qualifications } from './Qualifications';
-import { SeePortfolio } from './SeePortfolio';
 
 import '../theme.css';
 import './about.css';
@@ -12,7 +13,7 @@ export function About() {
       <Hero />
       <Bio />
       <Qualifications />
-      <SeePortfolio />
+      <NextPage heading='See my work' to='/portfolio' label='Open portfolio' />
     </main>
   );
 }

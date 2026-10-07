@@ -1,0 +1,4 @@
+.theme .next-page {
+  padding: clamp(4rem, 9vw, 8rem) 1rem;
+  background: var(--surface);
+}
