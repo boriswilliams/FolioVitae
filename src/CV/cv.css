@@ -1,6 +1,6 @@
 @page cv {
   size: A4;
-  margin: 15mm 18mm;
+  margin: 12mm 15mm;
 }
 
 .cv {
@@ -9,9 +9,8 @@
   page: cv;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   flex: 1;
-  padding: calc(var(--nav-height) + 1rem) 0 2rem;
+  padding: calc(var(--nav-height) + 0.5rem) 0 1rem;
   font-family: 'Century Gothic', 'Avant Garde', 'URW Gothic', 'Questrial', sans-serif;
   font-size: 10.2pt;
   line-height: 1.55;
@@ -22,7 +21,7 @@
   width: min(210mm, 100% - 2rem);
   min-height: 297mm;
   margin: 0 auto;
-  padding: 15mm 18mm;
+  padding: 12mm 15mm;
   background: var(--paper);
   box-shadow: 0 1px 4px rgb(0 0 0 / 0.15);
 }
@@ -61,18 +60,18 @@
 .cv .columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8mm;
+  gap: 6mm;
   align-items: start;
 }
 
 .cv .header + .columns {
-  margin-top: 6mm;
+  margin-top: 4mm;
 }
 
 @media screen and (max-width: 40rem) {
   .cv .columns {
     grid-template-columns: 1fr;
-    gap: 7mm;
+    gap: 5mm;
   }
 }
 
