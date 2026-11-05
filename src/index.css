@@ -1,9 +1,11 @@
 :root {
-  --text: #1a1a1a;
-  --muted: #5c5c5c;
-  --background: #f9f9f9;
-  --paper: #ffffff;
-  --behind: #f2f2f2;
+  color-scheme: light dark;
+
+  --text: light-dark(#1a1a1a, #f5f5f7);
+  --muted: light-dark(#5c5c5c, #a1a1a6);
+  --background: light-dark(#f9f9f9, #1c1c1e);
+  --paper: light-dark(#ffffff, #1c1c1e);
+  --behind: light-dark(#f2f2f2, #2c2c2e);
   --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Inter', system-ui, sans-serif;
   /* Space above and below the nav buttons, which are 2.75rem tall */
   --nav-inset: clamp(0.625rem, 1.75vw, 1.75rem);
@@ -33,6 +35,10 @@ body {
 }
 
 @media print {
+  :root {
+    color-scheme: light;
+  }
+
   #root {
     display: block;
     min-height: 0;

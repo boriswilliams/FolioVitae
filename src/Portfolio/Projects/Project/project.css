@@ -203,15 +203,15 @@
 }
 
 .portfolio .project-ai-free {
-  --ai: #1a8f3c;
+  --ai: light-dark(#1a8f3c, #4cd964);
 }
 
 .portfolio .project-ai-search {
-  --ai: #3a5bd9;
+  --ai: light-dark(#3a5bd9, #8ea6ff);
 }
 
 .portfolio .project-ai-tools {
-  --ai: #8e44c9;
+  --ai: light-dark(#8e44c9, #c58af0);
 }
 
 .portfolio .project-link {

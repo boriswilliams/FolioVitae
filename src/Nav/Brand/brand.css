@@ -14,6 +14,11 @@
   transition: backdrop-filter 0.3s ease;
 }
 
+/* Only needed over the page: on the nav's own bar it would show as a pill */
+.nav:not(.nav-overlay) .nav-brand {
+  backdrop-filter: none;
+}
+
 .nav-brand-away {
   display: none;
 }

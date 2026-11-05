@@ -4,7 +4,7 @@
 }
 
 .cv {
-  --accent: #1a6fd1;
+  --accent: light-dark(#1a6fd1, #5aa2f0);
 
   page: cv;
   display: flex;
