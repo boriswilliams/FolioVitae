@@ -3,6 +3,7 @@ import { flushSync } from 'react-dom';
 
 import { toHref } from '../../../utils/href';
 
+import { CloseButton } from '../../../CloseButton';
 import { Paragraphs } from '../../../Paragraphs';
 
 import { Media } from './Media';
@@ -175,11 +176,7 @@ export function Project({ project }: { project: Project}) {
       >
         {expandable && (
           // Keyboard presses come through as clicks with no detail
-          <button ref={closeRef} type='button' className='project-close' aria-label='Close' onClick={event => closeCard(event.detail === 0)}>
-            <svg viewBox='0 0 24 24' width='20' height='20' fill='none' stroke='currentColor' strokeWidth='2.5' strokeLinecap='round' aria-hidden='true'>
-              <path d='M6 6l12 12M18 6L6 18' />
-            </svg>
-          </button>
+          <CloseButton ref={closeRef} className='project-close' onClick={event => closeCard(event.detail === 0)} />
         )}
         <div className='project-body'>
           {project.media && (

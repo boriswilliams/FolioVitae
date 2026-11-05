@@ -5,6 +5,7 @@ import { ProfileProvider } from './profile';
 import { ProjectsProvider } from './projects';
 import { SkillsProvider } from './skills';
 import { TechProvider } from './tech';
+import { WelcomeProvider } from './welcome';
 import { WorkProvider } from './work';
 
 export function Provider({ children }: { children: ReactNode; }) {
@@ -14,9 +15,11 @@ export function Provider({ children }: { children: ReactNode; }) {
         <ProjectsProvider>
           <SkillsProvider>
             <TechProvider>
-              <WorkProvider>
-                {children}
-              </WorkProvider>
+              <WelcomeProvider>
+                <WorkProvider>
+                  {children}
+                </WorkProvider>
+              </WelcomeProvider>
             </TechProvider>
           </SkillsProvider>
         </ProjectsProvider>

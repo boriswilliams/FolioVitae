@@ -10,6 +10,7 @@ import { About } from './About';
 import { Contact } from './Contact';
 import { CV } from './CV';
 import { Portfolio } from './Portfolio';
+import { Welcome } from './Welcome';
 
 function Title() {
   const profile = useProfile();
@@ -28,6 +29,7 @@ function Layout() {
   return <>
     <Nav />
     <Outlet />
+    <Welcome />
   </>;
 }
 

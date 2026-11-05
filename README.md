@@ -14,6 +14,7 @@ Put these files next to the built site (in `public/` before building), following
 | `work.yml` | Work history |
 | `tech.yml` | Computing skills |
 | `skills.yml` | Additional skills |
+| `welcome.yml` | Message shown in a popup once per visit, after the about page's intro. `text` is Markdown |
 
 Media files (images, videos) can sit alongside them and be referenced by relative path, e.g. `media: ./demo.mp4`. See `example/` for a complete set.
 

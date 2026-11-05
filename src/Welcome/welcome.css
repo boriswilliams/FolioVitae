@@ -1,0 +1,124 @@
+.welcome {
+  width: min(40rem, 100% - 2rem);
+  max-width: none;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-align: left;
+  background: var(--surface);
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.25);
+  animation: welcome-pop 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.welcome::backdrop {
+  background: rgb(0 0 0 / 0.45);
+  backdrop-filter: blur(6px);
+  animation: welcome-fade 0.4s ease;
+}
+
+/* The body scrolls rather than the dialog, so the close button stays in the corner */
+.welcome .welcome-body {
+  max-height: calc(100svh - 2rem);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.welcome h2 {
+  margin-bottom: 1rem;
+  padding-right: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.welcome .welcome-text {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.welcome .welcome-text > * {
+  margin: 0;
+}
+
+.welcome .welcome-text > * + * {
+  margin-top: 0.75rem;
+}
+
+.welcome .welcome-text :is(h1, h2, h3, h4, h5, h6) {
+  padding: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.welcome .welcome-text strong {
+  color: var(--ink);
+}
+
+.welcome .welcome-text a {
+  color: var(--accent);
+}
+
+.welcome .welcome-text :is(ul, ol) {
+  padding-left: 1.25em;
+}
+
+.welcome .welcome-text blockquote {
+  padding-left: 1em;
+  border-left: 3px solid var(--accent);
+}
+
+.welcome .welcome-text code {
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  font-size: 0.9em;
+  background: var(--paper);
+}
+
+.welcome .welcome-text pre {
+  padding: 1em;
+  border-radius: 12px;
+  overflow: auto;
+  background: var(--paper);
+}
+
+.welcome .welcome-text pre code {
+  padding: 0;
+  background: none;
+}
+
+.welcome .welcome-text img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.welcome .welcome-text hr {
+  border: 0;
+  border-top: 1px solid var(--ink-soft);
+}
+
+@keyframes welcome-pop {
+  from {
+    translate: 0 2rem;
+    scale: 0.97;
+    opacity: 0;
+  }
+}
+
+@keyframes welcome-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome,
+  .welcome::backdrop {
+    animation: none;
+  }
+}
